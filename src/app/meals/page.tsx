@@ -1,12 +1,17 @@
 import Link from "next/link";
 
+import { IMeals } from "../types/meals";
+import { getMeals } from "@/lib/meals";
+
 import MealsGrid from "@/components/meals/meals-grid";
 
 import classes from "./page.module.css";
 
 export interface MealsProps {}
 
-export default function MealsPage({}: MealsProps) {
+export default async function MealsPage({}: MealsProps) {
+  const meals = (await getMeals()) as IMeals[];
+
   return (
     <>
       <header className={classes.header}>
@@ -22,7 +27,7 @@ export default function MealsPage({}: MealsProps) {
         </p>
       </header>
       <main className={classes.main}>
-        <MealsGrid meals={[]} />
+        <MealsGrid meals={meals} />
       </main>
     </>
   );

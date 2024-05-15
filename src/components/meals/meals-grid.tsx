@@ -1,16 +1,11 @@
+import { IMeals } from "@/app/types/meals";
+
 import MealItem from "./meal-item";
 
 import classes from "./meals-grid.module.css";
 
 export interface MealsGridProps {
-  meals: {
-    id: string;
-    title: string;
-    slug: string;
-    image: string;
-    summary: string;
-    creator: string;
-  }[];
+  meals: IMeals[];
 }
 
 export default function MealsGrid({ meals }: MealsGridProps) {
