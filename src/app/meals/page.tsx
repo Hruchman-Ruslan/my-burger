@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IMeals } from "../types/meals";
+import { IMeals } from "@/types/meals";
 import { getMeals } from "@/lib/meals";
 
 import MealsGrid from "@/components/meals/meals-grid";

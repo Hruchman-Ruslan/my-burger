@@ -1,4 +1,4 @@
-import { IMeals } from "@/app/types/meals";
+import { IMeals } from "@/types/meals";
 
 import MealItem from "./meal-item";
 
