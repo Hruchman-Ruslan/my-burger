@@ -1,3 +1,5 @@
+import ImagePicker from "@/components/meals/image-picker";
+
 import classes from "./page.module.css";
 
 export interface ShareMealProps {}
@@ -40,7 +42,7 @@ export default function ShareMealPage({}: ShareMealProps) {
               required
             ></textarea>
           </p>
-          IMAGE PICKER
+          <ImagePicker name="image" />
           <p className={classes.actions}>
             <button type="submit">Share Meal</button>
           </p>
