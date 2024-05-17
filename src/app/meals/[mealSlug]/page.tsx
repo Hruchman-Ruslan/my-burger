@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { notFound } from "next/navigation";
+
 import { IMeal } from "@/types/meals";
 import { getMeal } from "@/lib/meals";
 
@@ -12,6 +14,10 @@ export interface MealDetailsProps {
 export default function MealDetailsPage({ params }: MealDetailsProps) {
   const meal = getMeal(params.mealSlug) as IMeal;
 
+  if (!meal) {
+    notFound();
+  }
+
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
 
   return (
@@ -23,7 +29,7 @@ export default function MealDetailsPage({ params }: MealDetailsProps) {
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>
           <p className={classes.creator}>
-            be <a href={`mailto:${meal.creator_email}`}>{meal.creator}</a>
+            by <a href={`mailto:${meal.creator_email}`}>{meal.creator}</a>
           </p>
           <p className={classes.summary}>{meal.summary}</p>
         </div>
