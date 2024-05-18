@@ -15,3 +15,13 @@ export interface IMeal {
   summary: string;
   instructions: string;
 }
+
+export interface IAddMeal {
+  title: string;
+  summary: string;
+  instructions: string;
+  creator: string;
+  creator_email: string;
+  image: File;
+  slug?: string;
+}
