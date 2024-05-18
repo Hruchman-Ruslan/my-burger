@@ -7,7 +7,7 @@ import Image from "next/image";
 import classes from "./image-picker.module.css";
 
 export interface ImagePickerProps {
-  label?: string;
+  label: string;
   name: string;
 }
 
