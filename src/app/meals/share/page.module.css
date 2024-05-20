@@ -27,6 +27,7 @@
 
 .form {
   max-width: 50rem;
+  margin: auto;
 }
 
 .form label {

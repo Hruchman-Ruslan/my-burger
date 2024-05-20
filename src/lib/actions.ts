@@ -4,7 +4,11 @@ import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 import { IAddMeal } from "@/types/meals";
 
-export async function shareMeal(formData: FormData) {
+function isInvalidText(text: string) {
+  return !text || text.trim() === "";
+}
+
+export async function shareMeal(_: any, formData: FormData) {
   const meal = {
     title: formData.get("title"),
     summary: formData.get("summary"),
@@ -13,6 +17,21 @@ export async function shareMeal(formData: FormData) {
     creator: formData.get("name"),
     creator_email: formData.get("email"),
   } as IAddMeal;
+
+  if (
+    isInvalidText(meal.title) ||
+    isInvalidText(meal.summary) ||
+    isInvalidText(meal.instructions) ||
+    isInvalidText(meal.creator) ||
+    isInvalidText(meal.creator_email) ||
+    !meal.creator_email.includes("@") ||
+    !meal.image ||
+    meal.image.size === 0
+  ) {
+    return {
+      message: "Invalid input.",
+    };
+  }
 
   await saveMeal(meal);
   redirect("/meals");
