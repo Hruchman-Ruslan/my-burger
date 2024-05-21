@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import Link from "next/link";
@@ -8,6 +9,11 @@ import { getMeals } from "@/lib/meals";
 import MealsGrid from "@/components/meals/meals-grid";
 
 import classes from "./page.module.css";
+
+export const metadata: Metadata = {
+  title: "All Meals",
+  description: "Browse the delicious meals shared by our vibrant community.",
+};
 
 export interface MealsProps {}
 
